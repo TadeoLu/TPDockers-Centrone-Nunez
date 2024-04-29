@@ -1,0 +1,175 @@
+@if (!editando) {
+<div class="festival-details">
+  <h2>{{ festival.nombre }}</h2>
+  <p><strong>Ubicación:</strong> {{ festival.ubicacion }}</p>
+  <p><strong>Fecha de inicio:</strong> {{ festival.fechaInicio }}</p>
+  <p><strong>Fecha de fin:</strong> {{ festival.fechaFin }}</p>
+  <p><strong>Capacidad máxima:</strong> {{ festival.capacidadMaxima }}</p>
+  <p><strong>Tipo de música:</strong> {{ festival.tipoDeMusica }}</p>
+  <button (click)="editando = true">Editar</button>
+</div>
+} @else {
+<form (submit)="editarFestival()">
+  <label for="nombre">Nombre:</label>
+  <input
+    type="text"
+    id="nombre"
+    name="nombre"
+    [(ngModel)]="festival.nombre"
+    required
+  />
+  <br />
+  <label for="ubicacion">Ubicación:</label>
+  <input
+    type="text"
+    id="ubicacion"
+    name="ubicacion"
+    [(ngModel)]="festival.ubicacion"
+    required
+  />
+  <br />
+  <label for="fechaInicio">Fecha de inicio:</label>
+  <input
+    type="date"
+    id="fechaInicio"
+    name="fechaInicio"
+    [(ngModel)]="festival.fechaInicio"
+    required
+  />
+  <br />
+  <label for="fechaFin">Fecha de fin:</label>
+  <input
+    type="date"
+    id="fechaFin"
+    name="fechaFin"
+    [(ngModel)]="festival.fechaFin"
+    required
+  />
+  <br />
+  <label for="capacidadMaxima">Capacidad Máxima:</label>
+  <input
+    type="number"
+    id="capacidadMaxima"
+    name="capacidadMaxima"
+    [(ngModel)]="festival.capacidadMaxima"
+    required
+  />
+  <br />
+  <label for="tipoDeMusica">Tipo de Música:</label>
+  <select
+    id="tipoDeMusica"
+    name="tipoDeMusica"
+    [(ngModel)]="festival.tipoDeMusica"
+    required
+  >
+    <option *ngFor="let genero of generos" [value]="genero">
+      {{ genero }}
+    </option>
+  </select>
+  <br />
+  <button type="submit">Aceptar</button>
+</form>
+<hr />
+}
+<div class="arrays-details">
+  @if (mostrarArtista) {
+  <h3>Artistas:</h3>
+  <ul>
+    <li *ngFor="let artista of festival.artistas">
+      <app-artista
+        [artista]="artista"
+        [festival]="festival"
+        (actualizarFestival)="actualizarFestival($event)"
+      ></app-artista>
+    </li>
+    @if (!agregandoArtista){
+    <br />
+    <button (click)="agregandoArtista = true">Agregar</button>
+    } @else {
+    <form (submit)="agregarArtista()">
+      <label for="nombreArtista">Nombre:</label>
+      <input
+        type="text"
+        id="nombreArtista"
+        name="nombreArtista"
+        [(ngModel)]="nuevoArtista.nombre"
+        required
+      />
+      <br />
+      <label for="apellidoArtista">Apellido:</label>
+      <input
+        type="text"
+        id="apellidoArtista"
+        name="apellidoArtista"
+        [(ngModel)]="nuevoArtista.apellido"
+        required
+      />
+      <br />
+      <label for="edadArtista">Edad:</label>
+      <input
+        type="number"
+        id="edadArtista"
+        name="edadArtista"
+        [(ngModel)]="nuevoArtista.edad"
+        required
+      />
+      <br />
+      <label for="genero">Genero:</label>
+      <select
+        id="genero"
+        name="genero"
+        [(ngModel)]="nuevoArtista.genero"
+        required
+      >
+        <option *ngFor="let genero of generos" [value]="genero">
+          {{ genero }}
+        </option>
+      </select>
+      <br />
+      <button type="submit">Aceptar</button>
+    </form>
+    }
+  </ul>
+  <button (click)="mostrarArtista = false">Cerrar Artistas</button>
+  } @else {
+  <button (click)="mostrarArtista = true">Mostrar Artistas</button>
+  } @if (mostrarEntrada) {
+  <h3>Entradas:</h3>
+  <ul>
+    <li *ngFor="let entrada of festival.entradas">
+      <app-entrada [entrada]="entrada"></app-entrada>
+    </li>
+    @if (!agregandoEntrada){
+    <br />
+    <button (click)="agregandoEntrada = true">Agregar</button>
+    } @else {
+    <form (submit)="agregarEntrada()">
+      <label for="precioEntrada">Precio:</label>
+      <input
+        type="number"
+        id="precioEntrada"
+        name="precioEntrada"
+        [(ngModel)]="nuevaEntrada.precio"
+        required
+      />
+      <br />
+      <label for="tipo">Tipo</label>
+      <select id="tipo" name="tipo" [(ngModel)]="nuevaEntrada.tipo" required>
+        <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
+      </select>
+      <br />
+      <br />
+      <button type="submit">Aceptar</button>
+    </form>
+    <br />
+    <button (click)="mostrarEntrada = false">Cerrar Entradas</button>
+    }
+  </ul>
+  } @else {
+  <br />
+  <button (click)="mostrarEntrada = true">Mostrar Entradas</button>
+  }
+  <br />
+  <button (click)="eliminarFestival(festival.id)">Eliminar</button>
+</div>
+<hr />

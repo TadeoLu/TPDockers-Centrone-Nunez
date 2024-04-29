@@ -1,0 +1,35 @@
+
+ul {
+    list-style: none;
+  }
+  
+  /* Estilos para los botones */
+  button {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  /* Estilos para los campos de entrada y select */
+  input[type="number"],
+  select {
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos para las etiquetas de los campos */
+  label {
+    margin-right: 5px;
+  }
+  
+  /* Estilos para el botón de enviar del formulario */
+  button[type="submit"] {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }

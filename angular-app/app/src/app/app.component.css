@@ -1,0 +1,52 @@
+ul {
+  list-style: none;
+}
+
+/* Estilos para el contenedor principal */
+div {
+  padding: 20px;
+}
+
+/* Estilos para los encabezados */
+h1 {
+  color: #333;
+}
+
+h3 {
+  margin-top: 20px;
+}
+
+/* Estilos para los campos de entrada y select */
+input[type="text"],
+input[type="number"],
+select {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para las etiquetas de los campos */
+label {
+  margin-right: 5px;
+}
+
+/* Estilos para los botones */
+button {
+  background-color: #4caf50; /* Verde */
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Estilos para las listas de artistas y entradas */
+div > div {
+  margin-top: 20px;
+}
+
+/* Estilos para las líneas divisorias */
+hr {
+  margin-top: 20px;
+  border: none;
+  border-top: 1px solid #ccc;
+}

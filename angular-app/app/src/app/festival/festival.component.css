@@ -1,0 +1,63 @@
+ul {
+    list-style: none;
+  }
+
+  
+  /* Estilos para los botones */
+  button {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  /* Estilos para los campos de entrada y select */
+  input[type="text"],
+  input[type="number"],
+  select {
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos para las etiquetas de los campos */
+  label {
+    margin-right: 5px;
+  }
+  
+  /* Estilos para el botón de enviar del formulario */
+  button[type="submit"] {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el formulario */
+  form {
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para la lista de artistas y entradas */
+  .arrays-details ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Estilos para el botón de eliminar festival */
+  .arrays-details button {
+    background-color: #ff0000; /* Rojo */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  

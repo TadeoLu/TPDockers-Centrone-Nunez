@@ -1,0 +1,26 @@
+@if (!editando){
+<div>
+  <p>Tipo: {{ entrada.tipo }}</p>
+  <p>Precio: {{ entrada.precio }}</p>
+  <button (click)="editando = true">Editar</button>
+  <button (click)="borrarEntrada()">Borrar</button>
+</div>
+} @else {
+<form (submit)="guardarEdicion()">
+  <label for="precioEntrada">Precio:</label>
+  <input
+    type="number"
+    id="precioEntrada"
+    name="precioEntrada"
+    [(ngModel)]="entrada.precio"
+    required
+  />
+  <br>
+  <label for="tipo">Tipo</label>
+  <select id="tipo" name="tipo" [(ngModel)]="entrada.tipo" required>
+    <option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</option>
+  </select>
+  <br>
+  <button type="submit">Aceptar</button>
+</form>
+}

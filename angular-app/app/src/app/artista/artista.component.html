@@ -1,0 +1,48 @@
+@if (!editando) {
+<div>
+  <p>Nombre: {{ artista.nombre }}</p>
+  <p>Apellido: {{ artista.apellido }}</p>
+  <p>Genero: {{ artista.genero }}</p>
+  <p>({{ artista.edad }} años)</p>
+</div>
+<button (click)="editando = true">Editar</button>
+<button (click)="borrarArtista()">Borrar</button>
+} @else {
+<form (submit)="guardarEdicion()">
+  <label for="nombreArtista">Nombre:</label>
+  <input
+    type="text"
+    id="nombreArtista"
+    name="nombreArtista"
+    [(ngModel)]="artista.nombre"
+    required
+  />
+  <br />
+  <label for="apellidoArtista">Apellido:</label>
+  <input
+    type="text"
+    id="apellidoArtista"
+    name="apellidoArtista"
+    [(ngModel)]="artista.apellido"
+    required
+  />
+  <br />
+  <label for="edadArtista">Edad:</label>
+  <input
+    type="number"
+    id="edadArtista"
+    name="edadArtista"
+    [(ngModel)]="artista.edad"
+    required
+  />
+  <br />
+  <label for="genero">Genero:</label>
+  <select id="genero" name="genero" [(ngModel)]="artista.genero" required>
+    <option *ngFor="let genero of generos" [value]="genero">
+      {{ genero }}
+    </option>
+  </select>
+  <br />
+  <button type="submit">Aceptar</button>
+</form>
+}
